@@ -1,16 +1,24 @@
 ---
 layout: default
-title: 19 Notları
+title: Harrison Harnisch
 ---
-
-<div id="home">
-
-  <p>Kişisel web siteme hoşgeldiniz!</p>
-
-  Web günlüğüm için lütfen <a href="0/">tıklayın</a>.  Zaman zaman yazdığım 
-  teknik içerikli yazıları <a href="1/"><code>1</code></a> nolu kısımda 
-  bulabilirsiniz.</p>
-
-  {% include html/archive %}
-</div>
-  
+<ul class="posts">
+    {% for post in site.posts %}
+        <li>
+            <div class="details">
+                {{ post.date | date_to_string }} &middot; <span class="time">{{ post.content | number_of_words | plus: 250 | divided_by: 180.0}}</span> min read
+            </div>
+            <a href="{{post.url}}">
+                <h1 class="post-title">{{ post.title }}</h1>
+            </a>
+            <p>
+                {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
+                &raquo;
+                <a href="{{post.url}}">read more</a>
+            </p>
+            {% unless forloop.last %}
+                <div class="divider">&bull;</div>
+            {% endunless %}
+        </li>
+    {% endfor %}
+</ul>
