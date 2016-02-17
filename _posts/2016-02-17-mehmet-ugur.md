@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SJC -> ORD (Mehmet UGUR)
+title: (Mehmet UGUR)
 tags:
 - mehmet
 ---
